@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.api import health, upload, tasks, parse, extract, fields
+from app.api import health, upload, tasks, parse, extract, fields,match
 from app.core.logger import logger
 from app.db.database import init_db
 from app.db import models
@@ -14,7 +14,7 @@ app.include_router(tasks.router)
 app.include_router(parse.router)
 app.include_router(extract.router)
 app.include_router(fields.router)
-
+app.include_router(match.router)
 
 @app.get("/")
 def root():

@@ -63,3 +63,12 @@ day03
 
 当前第一版先按字段字典里的首批字段做了基础支持，后续可以继续扩展更多字段。
 
+day04
+今天主要完成了后端整合，明确了 parser、extract、matcher 和 backend 各模块的作用，并确认自己当前的核心任务是把这些模块通过 FastAPI 接口串联起来。之后完成了上传与任务查询链路的验证，确认 /upload 和 /tasks/{task_id} 可以正常使用。
+
+完成了解析模块接入。原来 /parse/{task_id} 使用的是模拟解析数据，今天将其替换为真实调用 parser/doc_parser.py，实现了对实际上传文档的解析，并将解析结果写回任务记录。这样后端已经能够完成“上传文件 → 解析文档”的真实流程。
+
+随后对抽取模块进行了联调调整。将 /extract/{task_id} 的输入从“直接读取原文件”改为“读取 /parse 后写入的解析结果”，保证抽取逻辑能够基于统一的 raw_text / paragraphs / tables 继续处理。之后成功打通了 /extract/{task_id} 和 /fields/{task_id}，实现了解析结果落库、字段抽取落库以及字段查询。
+
+最后完成了匹配模块接入。新增了 /match/{task_id} 接口，将 matcher/semantic_matcher.py 接入后端，并成功解决了缺少 sentence-transformers 依赖的问题。现在后端已经能够跑通：upload -> parse -> extract -> fields -> match
+虽然当前测试文档由于抽取结果为空，导致 /match/{task_id} 返回“当前没有可匹配的字段”，但这说明整条接口链路已经贯通，问题应该在上游抽取规则，而不是系统整合本身。

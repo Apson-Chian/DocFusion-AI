@@ -1,0 +1,48 @@
+2026-03-10 22:02:03,069 | ERROR | 文件上传失败: 'filename' is an invalid keyword argument for Task
+2026-03-14 21:41:36,379 | INFO | 任务解析成功: task_id=6
+2026-03-14 21:44:32,745 | INFO | 任务解析成功: task_id=7
+2026-03-14 21:46:21,930 | INFO | 任务解析成功: task_id=7
+2026-03-14 21:53:00,351 | INFO | 任务解析成功: task_id=8
+2026-03-14 22:10:11,678 | INFO | NumExpr defaulting to 16 threads.
+2026-03-14 22:10:13,343 | INFO | Use pytorch device_name: cpu
+2026-03-14 22:10:13,343 | INFO | Load pretrained SentenceTransformer: shibing624/text2vec-base-chinese
+2026-03-14 22:10:14,807 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:10:14,857 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/modules.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:14,903 | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/modules.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:15,178 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-03-14 22:10:15,465 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config_sentence_transformers.json "HTTP/1.1 404 Not Found"
+2026-03-14 22:10:15,729 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:10:15,770 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/README.md "HTTP/1.1 200 OK"
+2026-03-14 22:10:15,815 | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/README.md "HTTP/1.1 200 OK"
+2026-03-14 22:10:16,081 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:10:16,121 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/modules.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:16,380 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:10:16,422 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:16,472 | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:16,742 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-03-14 22:10:17,006 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:10:17,048 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:17,092 | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:17,413 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/model.safetensors "HTTP/1.1 302 Found"
+2026-03-14 22:10:17,684 | INFO | HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese/xet-read-token/183bb99aa7af74355fb58d16edf8c13ae7c5433e "HTTP/1.1 200 OK"
+2026-03-14 22:10:58,313 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:10:58,315 | WARNING | Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-03-14 22:10:58,359 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/config.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:58,626 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:10:58,672 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:58,723 | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-03-14 22:10:59,001 | INFO | HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-03-14 22:10:59,268 | INFO | HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-03-14 22:10:59,527 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/vocab.txt "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:10:59,574 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/vocab.txt "HTTP/1.1 200 OK"
+2026-03-14 22:10:59,622 | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/vocab.txt "HTTP/1.1 200 OK"
+2026-03-14 22:10:59,950 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/tokenizer.json "HTTP/1.1 404 Not Found"
+2026-03-14 22:11:00,234 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/added_tokens.json "HTTP/1.1 404 Not Found"
+2026-03-14 22:11:00,500 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/special_tokens_map.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:11:00,544 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-03-14 22:11:00,592 | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/special_tokens_map.json "HTTP/1.1 200 OK"
+2026-03-14 22:11:00,858 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-03-14 22:11:01,148 | INFO | HTTP Request: HEAD https://huggingface.co/shibing624/text2vec-base-chinese/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-03-14 22:11:01,193 | INFO | HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-03-14 22:11:01,244 | INFO | HTTP Request: GET https://huggingface.co/api/resolve-cache/models/shibing624/text2vec-base-chinese/183bb99aa7af74355fb58d16edf8c13ae7c5433e/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-03-14 22:11:01,518 | INFO | HTTP Request: GET https://huggingface.co/api/models/shibing624/text2vec-base-chinese "HTTP/1.1 200 OK"

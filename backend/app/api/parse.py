@@ -3,18 +3,21 @@ from sqlalchemy.orm import Session
 from app.db.database import get_db
 from app.db.models import Task
 from app.core.logger import logger
+
+from pathlib import Path
 import json
+import sys
 
 router = APIRouter()
 
+# 把项目根目录加入 Python 路径
+ROOT_DIR = Path(__file__).resolve().parents[3]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.append(str(ROOT_DIR))
 
-def fake_parse_document(file_path: str):
-    return {
-        "doc_id": file_path,
-        "paragraphs": ["这是测试段落1", "这是测试段落2"],
-        "tables": [],
-        "raw_text": "这是模拟解析出来的全文内容"
-    }
+from parser.doc_parser import DocumentParser
+
+parser = DocumentParser()
 
 
 @router.post("/parse/{task_id}")
@@ -25,10 +28,16 @@ def parse_task(task_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="任务不存在")
 
     try:
-        parse_result = fake_parse_document(task.file_path)
+        file_path = Path(task.file_path)
+
+        if not file_path.exists():
+            raise FileNotFoundError(f"文件不存在: {task.file_path}")
+
+        parse_result = parser.parse(file_path, doc_id=f"doc_{task.id}")
 
         task.status = "parsed"
         task.result = json.dumps(parse_result, ensure_ascii=False)
+        task.error_message = None
         db.commit()
         db.refresh(task)
 
@@ -43,6 +52,8 @@ def parse_task(task_id: int, db: Session = Depends(get_db)):
 
     except Exception as e:
         task.status = "failed"
+        task.error_message = str(e)
         db.commit()
+
         logger.error(f"任务解析失败: task_id={task.id}, error={str(e)}")
         raise HTTPException(status_code=500, detail=f"解析失败: {str(e)}")
