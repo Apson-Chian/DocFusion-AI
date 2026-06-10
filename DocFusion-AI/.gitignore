@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
+
+backend/storage/app.db
+backend/storage/logs/*
+backend/storage/reports/*
+backend/storage/uploads/*
+
+!backend/storage/logs/.gitkeep
+!backend/storage/reports/.gitkeep
+!backend/storage/uploads/.gitkeep

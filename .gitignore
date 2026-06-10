@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
+DocFusion-AI.zip
+归档 2.zip
+*.mov

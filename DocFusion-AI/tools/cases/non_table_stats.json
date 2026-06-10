@@ -1,0 +1,35 @@
+{
+  "table_id": "non_table_stats",
+  "fields": [
+    {
+      "field_name": "统计对象",
+      "slot": "category",
+      "aliases": ["分类对象", "分类", "对象"]
+    },
+    {
+      "field_name": "指标名称",
+      "slot": "indicator",
+      "aliases": ["统计指标", "指标项目", "项目名称"]
+    },
+    {
+      "field_name": "指标值",
+      "slot": "value",
+      "aliases": ["统计数值", "指标数", "对应数值"]
+    },
+    {
+      "field_name": "计量单位",
+      "slot": "unit",
+      "aliases": ["单位", "口径单位"]
+    },
+    {
+      "field_name": "统计时间",
+      "slot": "time",
+      "aliases": ["时间", "年份", "时点"]
+    },
+    {
+      "field_name": "同比变化",
+      "slot": "yoy",
+      "aliases": ["同比", "增速", "变化率"]
+    }
+  ]
+}

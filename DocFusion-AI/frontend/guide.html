@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocFusion 新手使用手册</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;500;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+        :root {
+            --bg: #050b14;
+            --bg-soft: #0a1526;
+            --panel: rgba(9, 20, 38, 0.88);
+            --panel-border: rgba(109, 154, 255, 0.18);
+            --text: #eef5ff;
+            --text-soft: #95a8c3;
+            --text-muted: #7285a1;
+            --accent: #5ee3d2;
+            --accent-strong: #74a8ff;
+            --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+            --radius-xl: 30px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            color: var(--text);
+            font-family: 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(116, 168, 255, 0.24), transparent 30%),
+                radial-gradient(circle at 84% 12%, rgba(94, 227, 210, 0.14), transparent 22%),
+                linear-gradient(150deg, #02060d 0%, #06101c 36%, #091526 100%);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(117, 151, 210, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(117, 151, 210, 0.08) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: radial-gradient(circle at center, black 34%, transparent 100%);
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 28px;
+        }
+
+        .hero,
+        .section {
+            border: 1px solid var(--panel-border);
+            background: var(--panel);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(18px);
+        }
+
+        .hero {
+            padding: 34px;
+            border-radius: var(--radius-xl);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(94, 227, 210, 0.08);
+            border: 1px solid rgba(94, 227, 210, 0.24);
+            color: var(--accent);
+            font-family: 'Outfit', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 18px 0 0;
+            font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+            font-size: clamp(36px, 6vw, 64px);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+
+        .subtitle {
+            margin: 14px 0 0;
+            color: var(--accent);
+            font-size: 19px;
+        }
+
+        .intro {
+            margin: 18px 0 0;
+            max-width: 72ch;
+            color: var(--text-soft);
+            line-height: 1.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 0 18px;
+            border-radius: 999px;
+            border: 1px solid rgba(94, 227, 210, 0.24);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(94, 227, 210, 0.08);
+        }
+
+        .button--ghost {
+            border-color: rgba(116, 168, 255, 0.24);
+            background: rgba(116, 168, 255, 0.08);
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+            gap: 20px;
+            margin-top: 22px;
+        }
+
+        .section {
+            padding: 26px;
+            border-radius: var(--radius-lg);
+        }
+
+        .section h2 {
+            margin: 0 0 14px;
+            font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+            font-size: 24px;
+        }
+
+        .section p,
+        .section li {
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+
+        .steps {
+            display: grid;
+            gap: 14px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .step {
+            padding: 16px 18px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(116, 168, 255, 0.18);
+            background: rgba(5, 13, 24, 0.58);
+        }
+
+        .step strong {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .tips,
+        .formats {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .note {
+            margin-top: 14px;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: rgba(116, 168, 255, 0.08);
+            border: 1px solid rgba(116, 168, 255, 0.18);
+            color: var(--text-soft);
+        }
+
+        .code {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+        }
+
+        @media (max-width: 860px) {
+            .page {
+                padding: 16px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .hero,
+            .section {
+                border-radius: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <section class="hero">
+            <div class="eyebrow">Beginner Guide</div>
+            <h1>DocFusion</h1>
+            <p class="subtitle">新手使用手册</p>
+            <p class="intro">
+                这是一份面向首次使用者的快速说明。你只需要先定义结果表头，再上传文件，DocFusion 就会按你设定的列名执行解析、抽取和结果展示。
+            </p>
+            <div class="hero-actions">
+                <a class="button" href="./">返回工作区</a>
+                <a class="button button--ghost" href="#faq">查看常见问题</a>
+            </div>
+        </section>
+
+        <div class="layout">
+            <section class="section">
+                <h2>快速上手</h2>
+                <ol class="steps">
+                    <li class="step">
+                        <strong>1. 先配置你要的输出列</strong>
+                        在首页左侧“提取列配置”中输入列名，比如 <span class="code">项目名称</span>、<span class="code">负责人</span>、<span class="code">联系电话</span>。列顺序就是最终结果表的列顺序。列名确定后，还要为每一列选择合适的槽位，系统会根据槽位决定这一列应当按分类、名称、数值、单位、时间还是同比来处理。
+                    </li>
+                    <li class="step">
+                        <strong>2. 再上传文件</strong>
+                        支持拖拽或点击上传，当前支持 <span class="code">TXT / MD / DOCX / XLSX</span>。多个文件可以一起上传，系统会逐个生成结果卡片。
+                    </li>
+                    <li class="step">
+                        <strong>3. 等待进度完成</strong>
+                        上传后页面会先显示进度卡片。后端完成解析后，页面会自动切换成结果卡片，并显示抽取结果、表格预览和原文片段。
+                    </li>
+                    <li class="step">
+                        <strong>4. 查看结果和来源</strong>
+                        你可以点击结果里的字段值查看来源段落，也可以下载当前任务结果表。每个文件的结果互相独立，不会混在一起。
+                    </li>
+                </ol>
+                <div class="note">
+                    如果页面刷新后你还想继续看刚才的结果，系统会尝试恢复最近的任务状态。若文件本身处理失败，建议检查表头是否重复，或重新上传一次。
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>使用建议</h2>
+                <ul class="tips">
+                    <li>表头名称尽量明确，不要重复。重复列名会被系统拦截。</li>
+                    <li>不要把所有列都设成 <span class="code">indicator</span>。表格抽取时，至少要区分分类列和数值列，否则可能出现“解析成功但抽取为空”。</li>
+                    <li>Excel 文件建议只保留当前要分析的主要工作表，能提高处理速度和结果可读性。</li>
+                    <li>如果只想抽取几个字段，就只配置那几个列，不要把无关列也加进去。</li>
+                    <li>出现失败时，优先看任务卡片中的错误提示，再决定是否重新上传。</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="layout">
+            <section class="section">
+                <h2>槽位怎么选</h2>
+                <p>槽位不是展示给最终读者看的列名，而是系统内部判断这列“扮演什么角色”的依据。列名可以写成你习惯的中文，槽位则要按这一列的实际含义来选。</p>
+                <ul class="formats">
+                    <li><span class="code">category</span>：用于表示这条记录属于谁、属于哪一类。常见列名有地区、城市、行业、部门、对象、类别。</li>
+                    <li><span class="code">indicator</span>：用于表示名称、项目名、指标名。常见列名有指标名称、项目名称、职位名称、招录单位。</li>
+                    <li><span class="code">value</span>：用于表示具体数值。常见列名有人数、金额、数量、得分、面积、浓度。</li>
+                    <li><span class="code">unit</span>：用于表示单位。常见内容有人、亿元、%、平方米、件。</li>
+                    <li><span class="code">time</span>：用于表示时间。常见列名有年份、日期、统计时间、月份、时点。</li>
+                    <li><span class="code">yoy</span>：用于表示同比或变化幅度。常见列名有同比、增速、增长率、变化率、涨跌幅。</li>
+                </ul>
+                <div class="note">
+                    一个简单判断方法是：如果这一列是在回答“这条记录是谁/属于哪类”，选 <span class="code">category</span>；如果是在回答“统计的是什么名称或项目”，选 <span class="code">indicator</span>；如果是在回答“具体是多少”，选 <span class="code">value</span>。
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>常见判断规则</h2>
+                <p><strong>什么时候选 indicator？</strong></p>
+                <p>当这一列本质上是名称、项目名、字段名时，选 <span class="code">indicator</span>。例如 <span class="code">职位名称</span>、<span class="code">项目名称</span>、<span class="code">招录单位</span>、<span class="code">指标名称</span>。</p>
+                <p><strong>什么时候选 unit？</strong></p>
+                <p>当这一列专门描述数值使用的单位时，选 <span class="code">unit</span>。例如单元格内容是 <span class="code">人</span>、<span class="code">亿元</span>、<span class="code">%</span>、<span class="code">平方米</span>。</p>
+                <p><strong>indicator 和 category 容易混淆怎么办？</strong></p>
+                <p>如果这列更像“记录归属对象”，例如地区、行业、部门类别，优先选 <span class="code">category</span>；如果更像“具体项目名称”，例如职位名称、招录单位、指标项目，优先选 <span class="code">indicator</span>。</p>
+                <p><strong>value 和 yoy 容易混淆怎么办？</strong></p>
+                <p>如果这一列表示主数值本身，例如人数、金额、数量，选 <span class="code">value</span>；如果表示增长、下降、变化幅度，选 <span class="code">yoy</span>。</p>
+            </section>
+        </div>
+
+        <div class="layout">
+            <section class="section">
+                <h2>支持的文件类型</h2>
+                <ul class="formats">
+                    <li><span class="code">TXT</span>：适合纯文本公告、报告、访谈记录。</li>
+                    <li><span class="code">MD</span>：适合结构化 Markdown 文档。</li>
+                    <li><span class="code">DOCX</span>：适合正式的 Word 报告、方案、通知。</li>
+                    <li><span class="code">XLSX</span>：适合表格型数据，系统会自动生成表格预览并抽取字段。</li>
+                </ul>
+                <div class="note">
+                    以国考职位表为例，推荐这样配置：<span class="code">报考地区 -> category</span>，<span class="code">招录单位 -> indicator</span>，<span class="code">职位名称 -> indicator</span>，<span class="code">招考生人数 -> value</span>。如果把这四列都设成 <span class="code">indicator</span>，就可能导致抽取结果为空。
+                </div>
+            </section>
+
+            <section class="section" id="faq">
+                <h2>常见问题</h2>
+                <p><strong>为什么要先填表头？</strong></p>
+                <p>因为 DocFusion 是按你定义的结果列去抽取信息，不先定义列名，系统无法知道你到底要什么字段。</p>
+                <p><strong>为什么有时结果为空？</strong></p>
+                <p>通常是因为文档里没有明确出现对应字段，或者列名定义得太模糊。对于表格文件，还要特别检查槽位是否选对。如果把 <span class="code">地区</span>、<span class="code">人数</span> 这类列都设成 <span class="code">indicator</span>，系统可能会出现“解析成功但抽取为空”。</p>
+                <p><strong>为什么点击字段值能看来源？</strong></p>
+                <p>这是为了帮助你核对抽取结果，避免只能看结论、看不到依据。</p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

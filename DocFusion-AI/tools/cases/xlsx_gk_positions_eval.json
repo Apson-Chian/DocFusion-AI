@@ -1,0 +1,25 @@
+{
+  "table_id": "xlsx_gk_positions_eval_v1",
+  "fields": [
+    {
+      "field_name": "报考地区",
+      "slot": "category",
+      "aliases": ["地区", "区域"]
+    },
+    {
+      "field_name": "招录单位",
+      "slot": "indicator",
+      "aliases": ["部门名称", "招考单位", "用人司局"]
+    },
+    {
+      "field_name": "职位名称",
+      "slot": "indicator",
+      "aliases": ["招考职位", "岗位名称", "职位"]
+    },
+    {
+      "field_name": "招考生人数",
+      "slot": "value",
+      "aliases": ["招考人数", "招录人数", "招聘人数"]
+    }
+  ]
+}

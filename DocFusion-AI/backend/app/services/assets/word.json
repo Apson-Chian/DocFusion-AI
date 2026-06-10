@@ -1,0 +1,33 @@
+{
+  "table_id": "table_001",
+  "fields": [
+    {
+      "field_name": "分类",
+      "type": "string"
+    },
+    {
+      "field_name": "指标",
+      "type": "string"
+    },
+    {
+      "field_name": "数值",
+      "type": "string"
+    },
+    {
+      "field_name": "单位",
+      "type": "string"
+    },
+    {
+      "field_name": "时间",
+      "type": "string"
+    },
+    {
+      "field_name": "同比",
+      "type": "string"
+    },
+    {
+      "field_name": "来源段落",
+      "type": "int"
+    }
+  ]
+}
